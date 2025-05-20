@@ -26,6 +26,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <distributionManagement>
+    <snapshotRepository>
+          <id>nexus.snapshot</id>
+          <url>http://34.79.64.105:8081/repository/nexus-snapshots/</url>
+    </snapshotRepository>
+    <repository>
+          <id>nexus.release</id>
+          <url>http://34.79.64.105:8081/repository/nexus-releases/</url>
+    </repository>
+</distributionManagement>
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -69,6 +79,26 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+  <groupId>org.sonatype.plugins</groupId>
+  <artifactId>nxrm3-maven-plugin</artifactId>
+  <!-- replace plugin version with the latest available -->
+  <!-- https://search.maven.org/search?q=a:nxrm3-maven-plugin -->
+  <version>1.0.7</version>
+  <extensions>true</extensions>
+  <configuration>
+    <nexusUrl>http://34.79.64.105:8081/</nexusUrl>
+     
+    <!-- The server "id" element from settings to use authentication from settings.xml-->
+    <serverId>gcp-nexus</serverId>
+    
+    <!-- Which repository to deploy to -->
+    <repository>maven-releases</repository>
+     
+    <!-- Skip the staging deploy mojo -->
+    <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+  </configuration>
+</plugin>
       </plugins>
     </pluginManagement>
   </build>
