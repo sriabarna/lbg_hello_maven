@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.qa</groupId>
-  <artifactId>hello-world-maven</artifactId>
+  <artifactId>hello-maven</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>hello-world-maven</name>
+  <name>hello-maven</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
